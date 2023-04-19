@@ -17,11 +17,7 @@ const Login = () => {
     ) {
       setNotif("*Pastikan anda mengisi semua data");
     } else {
-      window.location.assign(
-        window.location.pathname != "/"
-          ? process.env.REACT_APP_HOMEPAGE + window.location.pathname
-          : process.env.REACT_APP_HOMEPAGE + "/landing"
-      );
+      window.location.assign(process.env.REACT_APP_MAINURL + "/landing");
       localStorage.setItem("User", document.getElementById("username").value);
     }
   };

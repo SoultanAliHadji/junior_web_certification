@@ -40,9 +40,9 @@ const Main = () => {
           >
             {/* the component based on the currentPage state variable value
               dynamically */}
-            {currentPage == "/landing" ? (
+            {currentPage.includes("/landing") ? (
               <Landing setCurrentPage={setCurrentPage} />
-            ) : currentPage == "/register" ? (
+            ) : currentPage.includes("/register") ? (
               <Register
                 setCurrentPage={setCurrentPage}
                 onSubmit={onSubmit}

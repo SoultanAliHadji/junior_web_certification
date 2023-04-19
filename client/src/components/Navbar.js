@@ -41,7 +41,7 @@ export const Navbar = (props) => {
                 }
                 onClick={() => {
                   //onClick events that will pass values to the main component
-                  window.history.replaceState(null, null, menu.path);
+                  window.history.replaceState(null, null, process.env.REACT_APP_MAINURL + menu.path);
                   props.setCurrentPage(menu.path);
                 }}
               >
@@ -92,7 +92,7 @@ export const Navbar = (props) => {
                   className="px-4 py-2 hover:bg-red-600 hover:text-white text-start flex items-center gap-2"
                   onClick={() => {
                     localStorage.removeItem("User");
-                    window.location.assign(process.env.REACT_APP_HOMEPAGE);
+                    window.location.assign(process.env.REACT_APP_MAINURL);
                   }}
                 >
                   <Icon className="text-xl" icon="mdi:logout-variant" />

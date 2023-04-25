@@ -25,48 +25,50 @@ const Main = () => {
 
   //rendering the jsx element
   return (
-    <div className="main bg-slate-50 text-sm lg:text-base xl:text-xl font-roboto">
-      <div className="flex flex-col max-w-screen min-h-screen justify-between">
-        <header>
-          {/* the navbar reusable component */}
-          <Navbar page={currentPage} setCurrentPage={setCurrentPage} />
-        </header>
+    <div className="main">
+      <div className="bg-slate-50 text-sm lg:text-base xl:text-xl font-roboto">
+        <div className="flex flex-col max-w-screen min-h-screen justify-between">
+          <header>
+            {/* the navbar reusable component */}
+            <Navbar page={currentPage} setCurrentPage={setCurrentPage} />
+          </header>
 
-        <main>
-          <Suspense
-            fallback={
-              <div className="flex justify-center items-center gap-2">
-                <Icon
-                  className="animate-spin text-blue-600 text-xl"
-                  icon="icomoon-free:spinner9"
-                />
-                <label>Loading...</label>
-              </div>
-            }
-          >
-            {/* the component based on the currentPage state variable value
+          <main>
+            <Suspense
+              fallback={
+                <div className="flex justify-center items-center gap-2">
+                  <Icon
+                    className="animate-spin text-blue-600 text-xl"
+                    icon="icomoon-free:spinner9"
+                  />
+                  <label>Loading...</label>
+                </div>
+              }
+            >
+              {/* the component based on the currentPage state variable value
               dynamically */}
-            {currentPage == "/landing" ? (
-              <Landing setCurrentPage={setCurrentPage} />
-            ) : currentPage == "/register" ? (
-              <Register
-                setCurrentPage={setCurrentPage}
-                onSubmit={onSubmit}
-                setOnSubmit={setOnSubmit}
-              />
-            ) : (
-              <Application
-                setCurrentPage={setCurrentPage}
-                onSubmit={onSubmit}
-              />
-            )}
-          </Suspense>
-        </main>
+              {currentPage == "/landing" ? (
+                <Landing setCurrentPage={setCurrentPage} />
+              ) : currentPage == "/register" ? (
+                <Register
+                  setCurrentPage={setCurrentPage}
+                  onSubmit={onSubmit}
+                  setOnSubmit={setOnSubmit}
+                />
+              ) : (
+                <Application
+                  setCurrentPage={setCurrentPage}
+                  onSubmit={onSubmit}
+                />
+              )}
+            </Suspense>
+          </main>
 
-        <footer>
-          {/* the footer component as a reusable component */}
-          <Footer />
-        </footer>
+          <footer>
+            {/* the footer component as a reusable component */}
+            <Footer />
+          </footer>
+        </div>
       </div>
     </div>
   );

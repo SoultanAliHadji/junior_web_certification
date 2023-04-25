@@ -2,6 +2,7 @@
 import "./App.css";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
+import NotFound from "./pages/NotFound";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 //the app component to manage url paths for every page
@@ -16,6 +17,7 @@ function App() {
         <Route path="/landing" element={pageRestriction} />
         <Route path="/register" element={pageRestriction} />
         <Route path="/application" element={pageRestriction} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </HashRouter>
   );

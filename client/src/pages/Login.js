@@ -19,7 +19,7 @@ const Login = () => {
     } else {
       localStorage.setItem("user", document.getElementById("username").value);
       window.location.assign(
-          process.env.REACT_APP_MAINURL + "/landing"
+          !window.location.href.includes("/landing") && !window.location.href.includes("/register") && !window.location.href.includes("/application") ? process.env.REACT_APP_MAINURL + "/landing" : window.location.href
       );
       window.location.reload();
     }

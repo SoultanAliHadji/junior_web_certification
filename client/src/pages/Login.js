@@ -7,7 +7,7 @@ const Login = () => {
   const [notif, setNotif] = useState("");
 
   useEffect(() => {
-    localStorage.removeItem("User");
+    localStorage.removeItem("user");
   }, []);
 
   const handleLogin = () => {
@@ -17,8 +17,11 @@ const Login = () => {
     ) {
       setNotif("*Pastikan anda mengisi semua data");
     } else {
-      window.location.assign(process.env.REACT_APP_MAINURL + "/landing");
-      localStorage.setItem("User", document.getElementById("username").value);
+      localStorage.setItem("user", document.getElementById("username").value);
+      window.location.assign(
+          process.env.REACT_APP_MAINURL + "/landing"
+      );
+      window.location.reload();
     }
   };
 

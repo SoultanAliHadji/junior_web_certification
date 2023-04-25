@@ -6,11 +6,11 @@ const Register = ({ setCurrentPage, onSubmit, setOnSubmit }) => {
   //state variables with react hooks
   //the blank data state variable that will be changed after the user submit forms. the variable will be passed to the main component
   const [data, setData] = useState({
-    name: localStorage.getItem("User"),
+    name: localStorage.getItem("user"),
     email: "",
     phonenum: "",
     semester: 0,
-    gpa: localStorage.getItem("User") == "Soultan Ali Hadji" ? 3.82 : 2.9,
+    gpa: localStorage.getItem("user") == "Soultan Ali Hadji" ? 3.82 : 2.9,
     scheme: "",
     file: "",
   });
@@ -82,7 +82,11 @@ const Register = ({ setCurrentPage, onSubmit, setOnSubmit }) => {
         .finally(() => {
           setTimeout(() => {
             setCurrentPage("/application");
-            window.history.replaceState(null, null, "/application");
+            window.history.replaceState(
+              null,
+              null,
+              "/junior_web_certification/#/application"
+            );
           }, 1000);
         });
     }
@@ -223,6 +227,11 @@ const Register = ({ setCurrentPage, onSubmit, setOnSubmit }) => {
                 onClick={() => {
                   //onClick events that will pass values to the main component
                   setCurrentPage("/landing");
+                  window.history.replaceState(
+                    null,
+                    null,
+                    "/junior_web_certification/#/landing"
+                  );
                 }}
               >
                 Batal

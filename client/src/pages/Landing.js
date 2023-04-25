@@ -27,6 +27,11 @@ const Landing = ({ setCurrentPage }) => {
                 onClick={() => {
                   //onClick events that will pass values to the main component
                   setCurrentPage("/register");
+                  window.history.replaceState(
+                    null,
+                    null,
+                    "/junior_web_certification/#" + "/register"
+                  );
                 }}
               >
                 Daftar Sekarang

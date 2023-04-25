@@ -7,7 +7,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 //the app component to manage url paths for every page
 function App() {
   const pageRestriction =
-    localStorage.getItem("User") == null ? <Login /> : <Main />;
+    localStorage.getItem("user") == null ? <Login /> : <Main />;
 
   return (
     <HashRouter>

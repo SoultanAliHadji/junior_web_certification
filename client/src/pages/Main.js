@@ -12,7 +12,13 @@ const Application = React.lazy(() => import("./Application"));
 const Main = () => {
   //state variables with react hooks
   //the currentPage state variable changed based on the page paths
-  const [currentPage, setCurrentPage] = useState(window.location.pathname);
+  const [currentPage, setCurrentPage] = useState(
+    window.location.href.includes("/landing")
+      ? "/landing"
+      : window.location.href.includes("/register")
+      ? "/register"
+      : "/application"
+  );
 
   //the variable stores data when a form is submitted
   const [onSubmit, setOnSubmit] = useState(false);
@@ -40,9 +46,9 @@ const Main = () => {
           >
             {/* the component based on the currentPage state variable value
               dynamically */}
-            {currentPage.includes("/landing") ? (
+            {currentPage == "/landing" ? (
               <Landing setCurrentPage={setCurrentPage} />
-            ) : currentPage.includes("/register") ? (
+            ) : currentPage == "/register" ? (
               <Register
                 setCurrentPage={setCurrentPage}
                 onSubmit={onSubmit}

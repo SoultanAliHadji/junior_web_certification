@@ -16,7 +16,11 @@ export const Navbar = (props) => {
           className="text-lg lg:text-xl xl:text-3xl text-blue-600 font-semibold hover:cursor-pointer font-yeseva"
           onClick={() => {
             //onClick events that will pass values to the main component
-            window.history.replaceState(null, null, "/landing");
+            window.history.replaceState(
+              null,
+              null,
+              "/junior_web_certification/#/landing"
+            );
             props.setCurrentPage("/landing");
           }}
         >
@@ -34,14 +38,18 @@ export const Navbar = (props) => {
               <nav
                 key={menu.id}
                 className={
-                  (props.page == menu.path
+                  (props.page.includes(menu.path)
                     ? "font-medium text-blue-600 pointer-events-none"
                     : "hover:cursor-pointer hover:text-blue-600") +
                   (menu.path == "/landing" ? " hidden md:flex" : "")
                 }
                 onClick={() => {
                   //onClick events that will pass values to the main component
-                  window.history.replaceState(null, null, process.env.REACT_APP_MAINURL + menu.path);
+                  window.history.replaceState(
+                    null,
+                    null,
+                    "/junior_web_certification/#" + menu.path
+                  );
                   props.setCurrentPage(menu.path);
                 }}
               >
@@ -80,7 +88,7 @@ export const Navbar = (props) => {
             >
               <div className="grid border-2 bg-slate-50 pt-1 rounded-b-md">
                 <button className="text-xl px-4 py-2 cursor-default pointer-event-none">
-                  {localStorage.getItem("User")}
+                  {localStorage.getItem("user")}
                 </button>
                 <hr />
                 <button className="px-4 py-2 hover:bg-blue-600 hover:text-white text-start flex items-center gap-2">
@@ -91,8 +99,14 @@ export const Navbar = (props) => {
                 <button
                   className="px-4 py-2 hover:bg-red-600 hover:text-white text-start flex items-center gap-2"
                   onClick={() => {
-                    localStorage.removeItem("User");
-                    window.location.assign(process.env.REACT_APP_MAINURL);
+                    localStorage.removeItem("user");
+
+                    window.location.assign(process.env.REACT_APP_MAINURL + "/");
+                    window.history.replaceState(
+                      null,
+                      null,
+                      "/junior_web_certification/#" + "/");
+                    window.location.reload()
                   }}
                 >
                   <Icon className="text-xl" icon="mdi:logout-variant" />

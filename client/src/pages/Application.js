@@ -135,7 +135,11 @@ const Application = ({ setCurrentPage, onSubmit }) => {
                     className="mt-20 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-5 py-2 xl:py-3 font-medium"
                     onClick={() => {
                       setCurrentPage("/register");
-                      window.history.replaceState(null, null, "/register");
+                      window.history.replaceState(
+                        null,
+                        null,
+                        "/junior_web_certification/#/register"
+                      );
                     }}
                   >
                     Mulai Mendaftar
